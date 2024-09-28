@@ -225,7 +225,7 @@ footer {
         /* Media query for smaller screens (mobile view) */
         @media only screen and (max-width: 600px) {
             .glow-text {
-                font-size: 3rem; /* Adjust font size for mobile */
+                font-size: 1.5rem; /* Adjust font size for mobile */
                 text-shadow: 0 0 6px #66FCF1, 0 0 8px #66FCF1; /* Subtle glow on mobile */
             }
         }
