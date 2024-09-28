@@ -232,7 +232,7 @@ footer {
      
         @media only screen and (max-width: 600px) {
             .glow-text {
-                font-size: 2.5rem; /* Increase font size */
+                font-size: 1.5rem; /* Increase font size */
                 text-shadow: 0 0 20px #66FCF1, 0 0 40px, 0 0 60px, 0 0 80px; /* Increase glow intensity */
             }
         }
