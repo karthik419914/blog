@@ -114,10 +114,15 @@ body {
     padding: 20px;
     border-radius: 10px;
     font-family: 'Oxanium', sans-serif;
+    background-color: transparent;
+    
+    
+}
+.newiv{
     background-image: url(blackhole.gif);
     background-size: cover;
     background-position: center;
-    
+
 }
 
 .timer-block {
