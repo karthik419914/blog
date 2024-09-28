@@ -219,20 +219,22 @@ footer {
             font-size: 2.5rem;
             color: #66FCF1;
             text-align: center;
-            text-shadow: 0 0 10px #66FCF1, 0 0 20px, 0 0 30px, 0 0 40px;
-            animation: glow 1.5s ease-in-out infinite alternate;
+            text-shadow: 0 0 8px #66FCF1, 0 0 12px #66FCF1; /* Reduce the number of shadows */
+            animation: glow 2s ease-in-out infinite alternate; /* Slower animation */
         }
         
         @keyframes glow {
             to {
-                text-shadow: 0 0 20px, 0 0 30px, 0 0 40px, 0 0 50px;
+                text-shadow: 0 0 12px #66FCF1, 0 0 24px #66FCF1;
             }
         }
         
-     
+        /* Media query for smaller screens (mobile view) */
         @media only screen and (max-width: 600px) {
             .glow-text {
-                font-size: 1.5rem; /* Increase font size */
-                text-shadow: 0 0 20px #66FCF1, 0 0 40px, 0 0 60px, 0 0 80px; /* Increase glow intensity */
+                font-size: 3rem; /* Increase font size but not too large */
+                text-shadow: 0 0 6px #66FCF1, 0 0 10px #66FCF1; /* Reduce the glow effect for mobile */
+                animation: none; /* Disable animation on mobile for performance */
             }
         }
+        
