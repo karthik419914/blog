@@ -1,3 +1,12 @@
+
+.img1{
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-top:15px ;
+    margin-bottom:15px ;
+}
 /* Navigation Bar */
 .navbar {
     background-color: #1F2833; /* Dark grey background */
@@ -76,8 +85,13 @@ body {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    text-align: center;
+   justify-content: center;
     background-color: #1F2833; /* Darker grey background */
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
     border-radius: 10px;
     width: 100%;
     font-family: Arial, sans-serif;
@@ -86,11 +100,12 @@ body {
 .author-pic {
     width: 120px;
     height: 120px;
+    justify-content: center;
     border: 2px solid #66FCF1; /* Cyan border around profile picture */
 }
 
 .bio {
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1.8;
     color: #C5C6C7; /* Light grey text */
 }
@@ -250,4 +265,9 @@ footer {
 }
 .link_1{
 text-decoration: none;
+
+}
+
+.side_head{
+    font-style: italic;
 }
