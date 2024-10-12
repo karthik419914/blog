@@ -20,8 +20,8 @@ function snackbar() {
 
 function scrollFunction() {
   if (document.body.scrollTop > 80|| document.documentElement.scrollTop > 80) {
-    document.getElementById("rev_header").style.fontSize = "26px";
+    document.getElementById("rev_header").style.fontSize = "18px";
   } else {
-    document.getElementById("rev_header").style.fontSize = "40px";
+    document.getElementById("rev_header").style.fontSize = "25px";
   }
 }

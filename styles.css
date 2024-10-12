@@ -272,28 +272,12 @@ text-decoration: none;
     user-select: none; /* Standard syntax */
   }
 
-  .glow {
-    
-    
-    text-align: center;
-    animation: glow 1s ease-in-out infinite alternate;
-  }
-  
-  @-webkit-keyframes glow {
-    from {
-      text-shadow: 0 0 10px  #66FCF1, 0 0 20px #66FCF1, 0 0 30px  #66FCF1, 0 0 40px  #66FCF1, 0 0 50px  #66FCF1, 0 0 60px  #66FCF1, 0 0 70px  #66FCF1;
-    }
-    
-    to {
-      text-shadow: 0 0 20px  #66FCF1, 0 0 30px  #66FCF1, 0 0 40px  #66FCF1, 0 0 50px  #66FCF1, 0 0 60px  #66FCF1, 0 0 70px  #66FCF1, 0 0 80px  #66FCF1;
-    }
-  }
 
   #rev_header{
 
     color: #66FCF1;
     text-align: center;
-    font-size:40px; 
+    font-size:25px; 
 
     top: 0;
     width: 100%;
