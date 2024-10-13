@@ -322,3 +322,14 @@ text-decoration: none;
     width: 150px; /* Adjust the size of the loading image */
     height: auto;
 }
+
+.newcontainer {
+
+    display: flex;
+  
+    flex-direction: column;
+  
+    justify-content: flex-start; /* Or space-between, center, etc. */
+  
+  }
+  
