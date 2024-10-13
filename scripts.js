@@ -106,3 +106,16 @@ function flipCoin() {
 
 // Set an interval to flip the coin at regular intervals
 setInterval(flipCoin, flipDuration + pauseDuration); // Interval time to include flip and pause duration
+
+
+window.addEventListener("load", function() {
+    // Keep the loading screen visible for at least 5 seconds
+    setTimeout(function() {
+        document.getElementById("loadingScreen").style.opacity = '0'; // Start fade-out
+        setTimeout(function() {
+            document.getElementById("loadingScreen").style.display = 'none'; // Hide loading screen
+            document.getElementById("mainContent").style.display = 'block'; // Show main content
+        }, 1000); // Match the CSS transition duration (1 second)
+    }, 3000); // 5 seconds delay
+});
+
