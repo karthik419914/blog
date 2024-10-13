@@ -76,3 +76,33 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(element); // Observe the element
     });
 });
+
+
+
+const coins = document.querySelectorAll('.coin');
+let currentIndex = 1; // Track which image is currently displayed
+const flipDuration = 550; // Duration for one flip (in milliseconds)
+const pauseDuration = 4200; // Pause duration after each flip (in milliseconds)
+
+function flipCoin() {
+    // Hide the current coin
+    coins[currentIndex].classList.add('hidden');
+
+    // Update the index to show the next coin
+    currentIndex = (currentIndex + 1) % coins.length;
+
+    // Show the next coin
+    coins[currentIndex].classList.remove('hidden');
+
+    // Apply the flip effect
+    coins[currentIndex].style.transition = `transform ${flipDuration / 1000}s`; // Set rotation duration
+    coins[currentIndex].style.transform = `rotateY(180deg)`; // Rotate to flip the coin
+
+    setTimeout(() => {
+        // Reset the transformation after the flip
+        coins[currentIndex].style.transform = `rotateY(0deg)`; // Rotate back to show the image
+    }, flipDuration); // Change image after flip duration
+}
+
+// Set an interval to flip the coin at regular intervals
+setInterval(flipCoin, flipDuration + pauseDuration); // Interval time to include flip and pause duration

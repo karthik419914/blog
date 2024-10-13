@@ -284,3 +284,18 @@ text-decoration: none;
     width: 100%;
     transition: 0.4s;
   }
+  
+
+  .coin {
+     
+    backface-visibility: hidden; /* Hide backface during rotation */
+    transition: transform 0.2s; /* Smooth transition for the rotation */
+}
+
+.coin:first-child {
+    opacity: 1; /* Make the first coin visible */
+}
+
+.hidden {
+    display: none; /* Hide the image */
+}
