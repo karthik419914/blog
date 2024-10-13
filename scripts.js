@@ -25,3 +25,45 @@ function scrollFunction() {
     document.getElementById("rev_header").style.fontSize = "25px";
   }
 }
+
+var speed = 50; // Speed in milliseconds
+
+// Function to apply the typewriter effect to an element
+function typeWriter(element, txt) {
+    var i = 0;
+    function type() {
+        if (i < txt.length) {
+            element.innerHTML += txt.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        }
+    }
+    type();
+}
+
+// Intersection Observer to detect scrolling into the section
+const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const element = entry.target;
+            const text = element.getAttribute("data-content");
+
+            if (!element.classList.contains('typed')) {
+                typeWriter(element, text); // Start typewriter effect
+                element.classList.add('typed'); // Mark as typed to prevent re-triggering
+            }
+        }
+    });
+}, { threshold: 0.35 });
+
+// Store the text for each target element in a data-content attribute and clear the innerHTML
+document.addEventListener('DOMContentLoaded', function() {
+    const elements = document.querySelectorAll("#demo");
+
+    elements.forEach(function(element) {
+        var text = element.innerHTML;
+        element.setAttribute("data-content", text);
+        element.innerHTML = ''; // Clear the text initially for the effect
+        observer.observe(element); // Observe each element
+    });
+});
