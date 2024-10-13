@@ -76,7 +76,7 @@ body {
 /* General Styling */
 body {
     font-family: 'Exo 2', sans-serif;
-    background-color: #0B0C10; /* Dark background */
+    background-color: black; /* Dark background */
     color: #C5C6C7; /* Light grey text */
     }
 
@@ -136,7 +136,7 @@ body {
     
 }
 .newiv{
-    background-image: url(blackhole.gif);
+    background-image: url(new1.gif);
     background-size: cover;
     background-position: center;
 
