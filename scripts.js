@@ -28,42 +28,51 @@ function scrollFunction() {
 
 var speed = 50; // Speed in milliseconds
 
-// Function to apply the typewriter effect to an element
-function typeWriter(element, txt) {
+// Typewriter function that handles HTML content
+function typeWriter(element, html) {
     var i = 0;
+
     function type() {
-        if (i < txt.length) {
-            element.innerHTML += txt.charAt(i);
-            i++;
+        if (i < html.length) {
+            // If the next character is part of an HTML tag (like <a>), skip over it correctly
+            if (html.slice(i).startsWith("<")) {
+                const endTag = html.indexOf(">", i); // Find the closing '>' of the tag
+                element.innerHTML += html.slice(i, endTag + 1); // Add the full tag
+                i = endTag + 1; // Skip over the tag
+            } else {
+                // Otherwise, add characters normally
+                element.innerHTML += html.charAt(i);
+                i++;
+            }
             setTimeout(type, speed);
         }
     }
     type();
 }
 
-// Intersection Observer to detect scrolling into the section
+// Intersection Observer to trigger the effect when element is in view
 const observer = new IntersectionObserver(function(entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             const element = entry.target;
-            const text = element.getAttribute("data-content");
+            const html = element.getAttribute("data-content");
 
             if (!element.classList.contains('typed')) {
-                typeWriter(element, text); // Start typewriter effect
-                element.classList.add('typed'); // Mark as typed to prevent re-triggering
+                typeWriter(element, html); // Start typewriter effect with HTML
+                element.classList.add('typed'); // Prevent re-triggering
             }
         }
     });
-}, { threshold: 0.35 });
+}, { threshold: 0.28 });
 
-// Store the text for each target element in a data-content attribute and clear the innerHTML
+// Clear the text and store the original HTML content for typewriter effect
 document.addEventListener('DOMContentLoaded', function() {
-    const elements = document.querySelectorAll("#demo");
+    const elements = document.querySelectorAll(".typewriter"); // Select all elements with the class
 
     elements.forEach(function(element) {
-        var text = element.innerHTML;
-        element.setAttribute("data-content", text);
+        var html = element.innerHTML;
+        element.setAttribute("data-content", html);
         element.innerHTML = ''; // Clear the text initially for the effect
-        observer.observe(element); // Observe each element
+        observer.observe(element); // Observe the element
     });
 });
