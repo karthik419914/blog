@@ -1,3 +1,27 @@
+  // Countdown Timer Functionality
+   const countdownDate = new Date("October 13, 2024 23:59:59").getTime();
+
+   const x = setInterval(function () {
+       const now = new Date().getTime();
+       const distance = countdownDate - now;
+
+       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+       document.getElementById("days").innerText = days;
+       document.getElementById("hours").innerText = hours;
+       document.getElementById("minutes").innerText = minutes;
+       document.getElementById("seconds").innerText = seconds;
+
+       if (distance < 0) {
+           clearInterval(x);
+           document.getElementById("countdown-timer").innerHTML = "Blog released";
+       }
+   }, 1000);
+
+
 // When the user scrolls the page, execute myFunction
 window.onscroll = function() {scrollFunction(),myFunction()};
 function myFunction() {
@@ -26,7 +50,7 @@ function scrollFunction() {
   }
 }
 
-var speed = 50; // Speed in milliseconds
+var speed = 16; // Speed in milliseconds
 
 // Typewriter function that handles HTML content
 function typeWriter(element, html) {
@@ -63,7 +87,7 @@ const observer = new IntersectionObserver(function(entries) {
             }
         }
     });
-}, { threshold: 0.28 });
+}, { threshold: 0.1 });
 
 // Clear the text and store the original HTML content for typewriter effect
 document.addEventListener('DOMContentLoaded', function() {
@@ -77,8 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-
-
+//flip animation function
 const coins = document.querySelectorAll('.coin');
 let currentIndex = 1; // Track which image is currently displayed
 const flipDuration = 550; // Duration for one flip (in milliseconds)
@@ -107,15 +130,14 @@ function flipCoin() {
 // Set an interval to flip the coin at regular intervals
 setInterval(flipCoin, flipDuration + pauseDuration); // Interval time to include flip and pause duration
 
-
+//loading screen function
 window.addEventListener("load", function() {
-    // Keep the loading screen visible for at least 5 seconds
     setTimeout(function() {
         document.getElementById("loadingScreen").style.opacity = '0'; // Start fade-out
         setTimeout(function() {
             document.getElementById("loadingScreen").style.display = 'none'; // Hide loading screen
             document.getElementById("mainContent").style.display = 'block'; // Show main content
         }, 1000); // Match the CSS transition duration (1 second)
-    }, 3000); // 5 seconds delay
+    }, 1300); // set the delay here 
 });
 
