@@ -332,6 +332,7 @@ text-decoration: none;
   }
   /* Loader Animation - White on Black */
 .loader {
+  height: 40px;
   width: 40px;
   aspect-ratio: 1;
   --c: linear-gradient(#fff 0 0); /* White color */
@@ -354,7 +355,5 @@ text-decoration: none;
   75%,100%   {transform: rotate(270deg)}
 }
 
-/* Ensure loading screen background is black */
-#loadingScreen {
-  background-color: #000 !important;
-}
+
+
