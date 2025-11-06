@@ -101,35 +101,43 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Particle effect logic
-function createParticles() {
-  const particleContainer = document.querySelector('.particle-container');
-  for (let i = 0; i < 34; i++) {
-    const particle = document.createElement('div');
-    particle.classList.add('particle');
-    // Scatter directions:
-    const angle = Math.random() * 2 * Math.PI;
-    const dist = 65 + 28 * Math.random();
-    const x = Math.cos(angle) * dist;
-    const y = Math.sin(angle) * dist * 0.95;
-    particle.style.setProperty('--x', `${x}px`);
-    particle.style.setProperty('--y', `${y}px`);
-    particleContainer.appendChild(particle);
+//flip animation function
+const coins = document.querySelectorAll('.coin');
+let currentIndex = 1; // Track which image is currently displayed
+const flipDuration = 550; // Duration for one flip (in milliseconds)
+const pauseDuration = 4200; // Pause duration after each flip (in milliseconds)
+
+function flipCoin() {
+    // Hide the current coin
+    coins[currentIndex].classList.add('hidden');
+
+    // Update the index to show the next coin
+    currentIndex = (currentIndex + 1) % coins.length;
+
+    // Show the next coin
+    coins[currentIndex].classList.remove('hidden');
+
+    // Apply the flip effect
+    coins[currentIndex].style.transition = `transform ${flipDuration / 1000}s`; // Set rotation duration
+    coins[currentIndex].style.transform = `rotateY(180deg)`; // Rotate to flip the coin
+
     setTimeout(() => {
-      particle.remove();
-    }, 1550);
-  }
+        // Reset the transformation after the flip
+        coins[currentIndex].style.transform = `rotateY(0deg)`; // Rotate back to show the image
+    }, flipDuration); // Change image after flip duration
 }
 
-// MAIN logic
-window.addEventListener('DOMContentLoaded', function() {
-  createParticles();
-  // Fade out after exactly 3 seconds
-  setTimeout(function() {
-    document.getElementById('loadingScreen').style.opacity = '0';
+// Set an interval to flip the coin at regular intervals
+setInterval(flipCoin, flipDuration + pauseDuration); // Interval time to include flip and pause duration
+
+//loading screen function
+window.addEventListener("load", function() {
     setTimeout(function() {
-      document.getElementById('loadingScreen').style.display = 'none';
-      document.getElementById('mainContent').style.display = 'block';
-    }, 1300); // Match the CSS fade-out
-  }, 3000);
+        document.getElementById("loadingScreen").style.opacity = '0'; // Start fade-out
+        setTimeout(function() {
+            document.getElementById("loadingScreen").style.display = 'none'; // Hide loading screen
+            document.getElementById("mainContent").style.display = 'block'; // Show main content
+        }, 1000); // Match the CSS transition duration (1 second)
+    }, 1300); // set the delay here 
 });
+
