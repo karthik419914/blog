@@ -138,6 +138,6 @@ window.addEventListener("load", function() {
             document.getElementById("loadingScreen").style.display = 'none'; // Hide loading screen
             document.getElementById("mainContent").style.display = 'block'; // Show main content
         }, 1000); // Match the CSS transition duration (1 second)
-    }, 4000); // set the delay here 
+    }, 2000); // set the delay here 
 });
 
